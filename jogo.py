@@ -1,4 +1,3 @@
-from sympy import N
 from funcoes import *
 from random import *
 from colorama import Fore,Style
@@ -41,7 +40,14 @@ while True:
         print(Fore.BLUE)
 #Criando Variáveis
 oxigenio = 25
-tesouros = []
+tesouros_jogador1 = []
+tesouros_jogador2 = []
+lista_posicao_tesouros = [
+    [1],[2],[3],[4],[5],[6],[7],[8],
+    [9],[10],[11],[12],[13],[14],[15],[16],
+    [17],[18],[19],[20],[21],[22],[23],[24],
+    [25],[26],[27],[28],[29],[30],[31],[32]
+]
 #Vendo quantidade de jogadores
 while True:
     jogadores = int(input('Defina a quantidade de jogadores: [1] ou [2] '))
@@ -52,7 +58,7 @@ while True:
         tabela = PrettyTable()
         tabela = ColorTable(theme=Themes.OCEAN)
         tabela.field_names = ['Jogadores', 'Quantidade de Tesouros', 'Tesouros', 'Oxigênio']
-        tabela.add_row([nome,len(tesouros), tesouros, 'qntidade_oxigenio'])
+        tabela.add_row([nome,len(tesouros_jogador1), tesouros_jogador1, 'qntidade_oxigenio'])
         print(tabela)
     elif jogadores == 2:
         nome1 = input('Nome do jogador 1: ')
@@ -60,7 +66,47 @@ while True:
         tabela = PrettyTable()
         tabela = ColorTable(theme=Themes.OCEAN)
         tabela.field_names = ['Jogadores', 'Quantidade de Tesouros', 'Tesouros', 'Oxigênio']
-        tabela.add_row([nome1,len(tesouros), tesouros, 'qntidade_oxigenio'])
-        tabela.add_row([nome2,len(tesouros), tesouros, 'qntidade_oxigenio'])
+        tabela.add_row([nome1,len(tesouros_jogador1), tesouros_jogador1, 'qntidade_oxigenio'])
+        tabela.add_row([nome2,len(tesouros_jogador2), tesouros_jogador2, 'qntidade_oxigenio'])
         print(tabela)
     break
+#Desenhando o mapa
+print_slow('Inicializando mapa....')
+print()
+for e in tqdm([1,2,3,4,5,6,7,8,9]):
+    sleep(0.5)
+print(Fore.YELLOW)
+print_slow('''
+                                         ...                              
+                                   .~!~^.                             
+                                   :!!.                               
+                                   :!!.                               
+                                   :!!                                
+                           ........:~~..                              
+                           !777~~~~^^^~~.                             
+                           !!~^^::::::::.....                         
+               .^^^:     .:::.....:::::.:::......                     
+               .~^^~: .::^:::::.:::::.:::::.....:^^:                  
+               .~^~!^.:::^^^^^^::::::^^^^^^:::::^^^~^.                
+                :^!7~^^^^^::::^^^:::^^:::^^^^::^^^^^^~.               
+                .^!7~^^^^^::::^^^^^^~^::::^~^^^^^^^^^~.               
+               .~^~7^:::^^^^^^^^:::::^^^^^^^:::^^^^^~:                
+               .~^^~: ::::^^^^^::::::::::::..::::^~^.                 
+               .~^^^.   .:::::::::::::::::::::::::.                   
+                ...        ...:::::::::::::::..                       
+                                    .. .                              ''')
+print()
+print(lista_posicao_tesouros)
+#Iniciando o Jogo
+while True:
+    if jogadores == 1:
+        while True:
+            jogar_dados = ('Pressione [Enter] para rodar os dados: ')
+            dados_jogados = sorteio_dados()
+            print(Fore.BLUE)
+            print(dados_jogados)
+            #substituir o elemento sorteado por um bonequinho
+    
+
+            
+
