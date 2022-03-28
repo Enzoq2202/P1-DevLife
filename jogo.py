@@ -48,17 +48,19 @@ lista_posicao_tesouros = [
     [17],[18],[19],[20],[21],[22],[23],[24],
     [25],[26],[27],[28],[29],[30],[31],[32]
 ]
+posicao_jogador1 = 0
+posicao_jogador2 = 0
 #Vendo quantidade de jogadores
 while True:
     jogadores = int(input('Defina a quantidade de jogadores: [1] ou [2] '))
+    #Criando a Tabela de Informações do Jogo com a quantidade de jogadores
     if jogadores == 1:
-        #Criando a Tabela de Informações do Jogo com a quantidade de jogadores
         print(Fore.BLUE)
         nome = input('Nome: ')
         tabela = PrettyTable()
         tabela = ColorTable(theme=Themes.OCEAN)
         tabela.field_names = ['Jogadores', 'Quantidade de Tesouros', 'Tesouros', 'Oxigênio']
-        tabela.add_row([nome,len(tesouros_jogador1), tesouros_jogador1, 'qntidade_oxigenio'])
+        tabela.add_row([nome,len(tesouros_jogador1), tesouros_jogador1, oxigenio])
         print(tabela)
     elif jogadores == 2:
         nome1 = input('Nome do jogador 1: ')
@@ -66,8 +68,8 @@ while True:
         tabela = PrettyTable()
         tabela = ColorTable(theme=Themes.OCEAN)
         tabela.field_names = ['Jogadores', 'Quantidade de Tesouros', 'Tesouros', 'Oxigênio']
-        tabela.add_row([nome1,len(tesouros_jogador1), tesouros_jogador1, 'qntidade_oxigenio'])
-        tabela.add_row([nome2,len(tesouros_jogador2), tesouros_jogador2, 'qntidade_oxigenio'])
+        tabela.add_row([nome1,len(tesouros_jogador1), tesouros_jogador1, oxigenio])
+        tabela.add_row([nome2,len(tesouros_jogador2), tesouros_jogador2, oxigenio])
         print(tabela)
     break
 #Desenhando o mapa
@@ -97,15 +99,49 @@ print_slow('''
                                     .. .                              ''')
 print()
 print(lista_posicao_tesouros)
+print(Fore.BLUE)
 #Iniciando o Jogo
 while True:
     if jogadores == 1:
+        nickname = nome[0]
         while True:
             jogar_dados = ('Pressione [Enter] para rodar os dados: ')
-            dados_jogados = sorteio_dados()
+            dado1 = sorteio_dado1()
+            dado2 = sorteio_dado2()
+            print_slow(f'O primeiro dado caiu no número: {dado1}')
+            print()
+            print_slow(f'O segundo dado caiu no número: {dado2}')
+            print()
+            dados_jogados = dado1 + dado2
+            print(f'A soma dos dados equivale a: {dados_jogados}')
+            posicao_jogador1+=dados_jogados
             print(Fore.BLUE)
             print(dados_jogados)
-            #substituir o elemento sorteado por um bonequinho
+            print_slow('Voçê se encontra nesta posição: ')
+            print()
+            print(Fore.YELLOW)
+            print('''
+                                         ...                              
+                                   .~!~^.                             
+                                   :!!.                               
+                                   :!!.                               
+                                   :!!                                
+                           ........:~~..                              
+                           !777~~~~^^^~~.                             
+                           !!~^^::::::::.....                         
+               .^^^:     .:::.....:::::.:::......                     
+               .~^^~: .::^:::::.:::::.:::::.....:^^:                  
+               .~^~!^.:::^^^^^^::::::^^^^^^:::::^^^~^.                
+                :^!7~^^^^^::::^^^:::^^:::^^^^::^^^^^^~.               
+                .^!7~^^^^^::::^^^^^^~^::::^~^^^^^^^^^~.               
+               .~^~7^:::^^^^^^^^:::::^^^^^^^:::^^^^^~:                
+               .~^^~: ::::^^^^^::::::::::::..::::^~^.                 
+               .~^^^.   .:::::::::::::::::::::::::.                   
+                ...        ...:::::::::::::::..                       
+                                    .. .                              ''')
+            print(posicao_lista(lista_posicao_tesouros,posicao_jogador1,nickname))
+            break
+    break
     
 
             

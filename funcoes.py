@@ -8,14 +8,13 @@ def print_slow(str):
         sys.stdout.write(letter)
         sys.stdout.flush()
         time.sleep(0.02)
-#Função sorteio
-def sorteio_dados():
+#Função sorteio dos dados
+def sorteio_dado1():
     dado1 = randint(1,3)
-    print(f'o primeiro dado caiu no número {dado1}.')
+    return dado1
+def sorteio_dado2():
     dado2 = randint(1,3)
-    print(f'o segundo dado caiu no número {dado2}.')
-    soma = dado1+dado2
-    return f'A soma deles corresponde a {soma}' 
+    return dado2
 
 #Função que vai percorrer a lista e definir os tesouros
 def sorteio_tesouros(lista,dados):
@@ -29,3 +28,8 @@ def sorteio_tesouros(lista,dados):
     else:
         valor = randint(12,15)
     return valor
+
+#Função que demonstra a posição do jogador no print
+def posicao_lista(lista,posicao,personagem):
+    lista[posicao-1] = personagem
+    return lista
