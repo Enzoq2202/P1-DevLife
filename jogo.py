@@ -53,24 +53,24 @@ posicao_jogador2 = 0
 #Vendo quantidade de jogadores
 while True:
     jogadores = int(input('Defina a quantidade de jogadores: [1] ou [2] '))
-    #Criando a Tabela de Informações do Jogo com a quantidade de jogadores
+    #Criando a tabela de Informações do Jogo com a quantidade de jogadores
     if jogadores == 1:
         print(Fore.BLUE)
         nome = input('Nome: ')
-        tabela = PrettyTable()
-        tabela = ColorTable(theme=Themes.OCEAN)
-        tabela.field_names = ['Jogadores', 'Quantidade de Tesouros', 'Tesouros', 'Oxigênio']
-        tabela.add_row([nome,len(tesouros_jogador1), tesouros_jogador1, oxigenio])
-        print(tabela)
+        tabela_exemplo = PrettyTable()
+        tabela_exemplo = ColorTable(theme=Themes.OCEAN)
+        tabela_exemplo.field_names = ['Jogadores', 'Quantidade de Tesouros', 'Tesouros', 'Oxigênio']
+        tabela_exemplo.add_row([nome,len(tesouros_jogador1), tesouros_jogador1, oxigenio])
+        print(tabela_exemplo)
     elif jogadores == 2:
         nome1 = input('Nome do jogador 1: ')
         nome2 = input('Nome do jogador 2: ')
-        tabela = PrettyTable()
-        tabela = ColorTable(theme=Themes.OCEAN)
-        tabela.field_names = ['Jogadores', 'Quantidade de Tesouros', 'Tesouros', 'Oxigênio']
-        tabela.add_row([nome1,len(tesouros_jogador1), tesouros_jogador1, oxigenio])
-        tabela.add_row([nome2,len(tesouros_jogador2), tesouros_jogador2, oxigenio])
-        print(tabela)
+        tabela_exemplo = PrettyTable()
+        tabela_exemplo = ColorTable(theme=Themes.OCEAN)
+        tabela_exemplo.field_names = ['Jogadores', 'Quantidade de Tesouros', 'Tesouros', 'Oxigênio']
+        tabela_exemplo.add_row([nome1,len(tesouros_jogador1), tesouros_jogador1, oxigenio])
+        tabela_exemplo.add_row([nome2,len(tesouros_jogador2), tesouros_jogador2, oxigenio])
+        print(tabela_exemplo)
     break
 #Desenhando o mapa
 print_slow('Inicializando mapa....')
@@ -99,12 +99,12 @@ print_slow('''
                                     .. .                              ''')
 print()
 print(lista_posicao_tesouros)
-print(Fore.BLUE)
 #Iniciando o Jogo
 while True:
     if jogadores == 1:
         nickname = nome[0]
         while True:
+            print(Fore.BLUE)
             jogar_dados = ('Pressione [Enter] para rodar os dados: ')
             dado1 = sorteio_dado1()
             dado2 = sorteio_dado2()
@@ -140,7 +140,40 @@ while True:
                 ...        ...:::::::::::::::..                       
                                     .. .                              ''')
             print(posicao_lista(lista_posicao_tesouros,posicao_jogador1,nickname))
-            break
+            if len(tesouros_jogador1) < 4:
+                ganhou_tesouro = sorteio_tesouros(posicao_jogador1)
+                print(Fore.BLUE)
+                print_slow(f'Tesouro encontrado no valor de: {ganhou_tesouro}')
+                print()
+                print_slow('Deseja ficar com o tesouro?:  ')
+                print()
+                pergunta_tesouro = input('[S] / [N]: ').upper()
+                if pergunta_tesouro == 'S':
+                    tesouros_jogador1.append(ganhou_tesouro)
+                    tabela_jg1 = PrettyTable()
+                    tabela_jg1 = ColorTable(theme=Themes.OCEAN)
+                    tabela_jg1.field_names = ['Jogadores', 'Quantidade de Tesouros', 'Tesouros', 'Oxigênio']
+                    tabela_jg1.add_row([nome,len(tesouros_jogador1), tesouros_jogador1, oxigenio])
+                    print(tabela_jg1)
+                else:
+                    print_slow('Tesouro não coletado')
+            else:
+                ganhou_tesouro = sorteio_tesouros(posicao_jogador1)
+                print(Fore.BLUE)
+                print_slow(f'Tesouro encontrado no valor de: {ganhou_tesouro}')
+                print()
+                print_slow('Número máximo de tesouros recolhidos, deseja remover um para guardar este? [S] / [N]: ')
+                print()
+                pergunta_tesouro_cheio = input('').upper()
+                if pergunta_tesouro_cheio == 'S':
+                    print_slow('Digite o Tesouro que deseja remover: ')
+                    print()
+                    num_tesouro_remover = int(input(''))
+                    posicao_tesouro = tesouros_jogador1.index(num_tesouro_remover)
+                    tesouros_jogador1[posicao_tesouro] = ganhou_tesouro
+                    print(tabela_jg1)
+                else:
+                    break
     break
     
 
