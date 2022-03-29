@@ -31,7 +31,14 @@ def sorteio_tesouros(posicao):
 #Função que demonstra a posição do jogador no print
 def posicao_lista(lista,posicao,personagem):
     lista_retorno = []
-    for elem in lista:
-        lista_retorno.append(elem)
-    lista_retorno[posicao-1] = personagem
-    return lista_retorno
+    if posicao > 32:
+        for elem in lista:
+            lista_retorno.append(elem)
+        lista_retorno[31] = personagem
+        print('Não é possível mais avançar, retorne.')
+        return lista_retorno
+    else:
+        for elem in lista:
+            lista_retorno.append(elem)
+        lista_retorno[posicao-1] = personagem
+        return lista_retorno
