@@ -113,7 +113,6 @@ while True:
             print_slow(f'O segundo dado caiu no número: {dado2}')
             print()
             dados_jogados = dado1 + dado2
-            print(f'A soma dos dados equivale a: {dados_jogados}')
             posicao_jogador1+=dados_jogados
             print(Fore.BLUE)
             print(dados_jogados)
@@ -139,8 +138,23 @@ while True:
                .~^^^.   .:::::::::::::::::::::::::.                   
                 ...        ...:::::::::::::::..                       
                                     .. .                              ''')
+            
             print(posicao_lista(lista_posicao_tesouros,posicao_jogador1,nickname))
-            if len(tesouros_jogador1) < 4:
+            if (posicao_lista(lista_posicao_tesouros,posicao_jogador1,nickname)) == "Redirecionando o personagem":
+                posicao_jogador1 = 32
+                while posicao_jogador1 > 1:
+                    print(Fore.BLUE)
+                    dado1_volta = sorteio_dado1()
+                    print_slow(f'O primeiro dado caiu no número: {dado1_volta}')
+                    print()
+                    dado2_volta = sorteio_dado2()
+                    print_slow(f'O segundo dado caiu no número: {dado2_volta}')
+                    print()
+                    print(Fore.YELLOW)
+                    print(retorne_posicao(lista_posicao_tesouros,posicao_jogador1,nickname))
+                    dados_jogados_volta = dado1_volta + dado2_volta
+                    posicao_jogador1 -= dados_jogados
+            elif len(tesouros_jogador1) < 4:
                 ganhou_tesouro = sorteio_tesouros(posicao_jogador1)
                 print(Fore.BLUE)
                 print_slow(f'Tesouro encontrado no valor de: {ganhou_tesouro}')

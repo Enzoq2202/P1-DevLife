@@ -35,10 +35,18 @@ def posicao_lista(lista,posicao,personagem):
         for elem in lista:
             lista_retorno.append(elem)
         lista_retorno[31] = personagem
-        print('Não é possível mais avançar, retorne.')
-        return lista_retorno
+        print('Não é possível mais avançar, você se encontra na posição de número 32. Redirecionando personagem.')
+        return 'Redirecionando o personagem'
     else:
         for elem in lista:
             lista_retorno.append(elem)
         lista_retorno[posicao-1] = personagem
         return lista_retorno
+
+#Função que faz a trajetória de volta do jogador
+def retorne_posicao(lista,posicao,personagem):
+    lista_retorno = []
+    for elem in lista:
+        lista_retorno.append(elem)
+    lista_retorno[posicao-1] = personagem
+    return lista_retorno
