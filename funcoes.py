@@ -7,7 +7,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.02)
+        time.sleep(0.015)
 #Função sorteio dos dados
 def sorteio_dado1():
     dado1 = randint(1,3)
@@ -36,7 +36,7 @@ def posicao_lista(lista,posicao,personagem):
             lista_retorno.append(elem)
         lista_retorno[31] = personagem
         print('Não é possível mais avançar, você se encontra na posição de número 32. Redirecionando personagem.')
-        return 'Redirecionando o personagem'
+        return 'Redirecionando o personagem.'
     else:
         for elem in lista:
             lista_retorno.append(elem)
