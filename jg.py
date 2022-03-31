@@ -1,5 +1,4 @@
 #Importando bibliotecas
-from ast import For
 from funcoes import *
 from random import *
 from colorama import Fore,Style
