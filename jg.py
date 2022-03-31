@@ -154,28 +154,12 @@ while True:
                 soma_dos_dados = dado1 + dado2
                 if len(tesouros_jogador1) == 0:
                     posicao_jogador1+=soma_dos_dados
-                    if posicao_jogador1 > 32:
-                        print('Voçê se encontra na posição de número: [32] ')
-                    else:
-                        print(f'Voçê se encontra na posição de número: [{posicao_jogador1}] ')
                 elif len(tesouros_jogador1) > 0:
                     soma_dos_dados -= len(tesouros_jogador1)
-                    if posicao_jogador1 > 32:
-                        print('Voçê se encontra na posição de número: [32] ')
-                    else:
-                        print(f'Voçê se encontra na posição de número: [{posicao_jogador1}] ')
                     if soma_dos_dados <= 0:
                         posicao_jogador1 = posicao_jogador1
-                        if posicao_jogador1 > 32:
-                            print('Voçê se encontra na posição de número: [32] ')
-                        else:
-                            print(f'Voçê se encontra na posição de número: [{posicao_jogador1}] ')
                     else:
                         posicao_jogador1 += soma_dos_dados
-                        if posicao_jogador1 > 32:
-                            print('Voçê se encontra na posição de número: [32] ')
-                        else:
-                            print(f'Voçê se encontra na posição de número: [{posicao_jogador1}] ')
                 else:
                     pass
                 if posicao_jogador1 >= 32:
@@ -578,4 +562,4 @@ while True:
         
         
         
-        #break #while principal
+
