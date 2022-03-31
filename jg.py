@@ -84,32 +84,32 @@ else:
     tabela_2_jogadores.add_row([nome2,len(tesouros_jogador1), tesouros_jogador1, oxigenio, pontuacao_final_jogador2])
     print(tabela_2_jogadores)
 #Desenhando o mapa
-#print_slow('Inicializando mapa....')
-#print()
-#print(Fore.WHITE)
-#for e in tqdm([1,2,3,4,5,6,7,8,9]):
-#    sleep(0.25)
-#print(Fore.YELLOW)
-#print_slow('''
-#                                         ...                              
-#                                   .~!~^.                             
-#                                   :!!.                               
-#                                   :!!.                               
-#                                   :!!                                
-#                           ........:~~..                              
-#                           !777~~~~^^^~~.                             
-#                           !!~^^::::::::.....                         
-#               .^^^:     .:::.....:::::.:::......                     
-#               .~^^~: .::^:::::.:::::.:::::.....:^^:                  
-#               .~^~!^.:::^^^^^^::::::^^^^^^:::::^^^~^.                
-#                :^!7~^^^^^::::^^^:::^^:::^^^^::^^^^^^~.               
-#                .^!7~^^^^^::::^^^^^^~^::::^~^^^^^^^^^~.               
-#               .~^~7^:::^^^^^^^^:::::^^^^^^^:::^^^^^~:                
-#               .~^^~: ::::^^^^^::::::::::::..::::^~^.                 
-#               .~^^^.   .:::::::::::::::::::::::::.                   
-#                ...        ...:::::::::::::::..                       
-#                                    .. .                              ''')
-#print()
+print_slow('Inicializando mapa....')
+print()
+print(Fore.WHITE)
+for e in tqdm([1,2,3,4,5,6,7,8,9]):
+    sleep(0.25)
+print(Fore.YELLOW)
+print_slow('''
+                                         ...                              
+                                   .~!~^.                             
+                                   :!!.                               
+                                   :!!.                               
+                                   :!!                                
+                           ........:~~..                              
+                           !777~~~~^^^~~.                             
+                           !!~^^::::::::.....                         
+               .^^^:     .:::.....:::::.:::......                     
+               .~^^~: .::^:::::.:::::.:::::.....:^^:                  
+               .~^~!^.:::^^^^^^::::::^^^^^^:::::^^^~^.                
+                :^!7~^^^^^::::^^^:::^^:::^^^^::^^^^^^~.               
+                .^!7~^^^^^::::^^^^^^~^::::^~^^^^^^^^^~.               
+               .~^~7^:::^^^^^^^^:::::^^^^^^^:::^^^^^~:                
+               .~^^~: ::::^^^^^::::::::::::..::::^~^.                 
+               .~^^^.   .:::::::::::::::::::::::::.                   
+                ...        ...:::::::::::::::..                       
+                                    .. .                              ''')
+print()
 
 #Inciando o jogo para 1 jogador
 if qntidade_jogadores == 1:
@@ -392,6 +392,10 @@ if qntidade_jogadores == 1:
             print('Fim de jogo.')
             break
         elif avancar_retroceder == 'R':
+            print(Fore.MAGENTA)
+            print_slow('Retrocedendo.................')
+            print()
+            print(Fore.BLUE)
             oxigenio -= len(tesouros_jogador1)
             if oxigenio <= 0:
                 print(Fore.GREEN)
