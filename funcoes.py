@@ -1,7 +1,6 @@
 import sys
 import time
 from random import *
-
 #Função achada no StackOverflow para printar a linha lentamente.
 def print_slow(str):
     for letter in str:
@@ -15,7 +14,6 @@ def sorteio_dado1():
 def sorteio_dado2():
     dado2 = randint(1,3)
     return dado2
-
 #Função que vai percorrer a lista e definir os tesouros
 def sorteio_tesouros(posicao):
     if posicao <= 8:
@@ -27,7 +25,6 @@ def sorteio_tesouros(posicao):
     else:
         valor = randint(12,15)
     return valor
-
 #Função que demonstra a posição do jogador no print
 def posicao_lista(lista,posicao,personagem):
     lista_retorno = []
@@ -35,7 +32,6 @@ def posicao_lista(lista,posicao,personagem):
         lista_retorno.append(elem)
     lista_retorno[posicao-1] = personagem
     return lista_retorno
-
 #Calcular a pontuação final do jogador
 def pontuacao_final(lista):
     return sum(lista)
