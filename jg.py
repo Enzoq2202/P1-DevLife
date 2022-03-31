@@ -142,6 +142,7 @@ while True:
                     print(f'Nesta rodada voçê perdeu {len(tesouros_jogador1)} oxigênios. ')
                     print(tabela_1_jogador)
                 print(Fore.BLUE)
+                #sorteando dados
                 jogar_dados = ('Pressione [Enter] para rodar os dados: ')
                 dado1 = sorteio_dado1()
                 dado2 = sorteio_dado2()
@@ -161,6 +162,7 @@ while True:
                         posicao_jogador1 += soma_dos_dados
                 else:
                     pass
+                #verificando posições
                 if posicao_jogador1 >= 32:
                     posicao_final = input('Voçê se encontra na última posição [32]. Deseja vasculhar esta região? [S] / [N]. Após a resposta voçê será automaticamente redirecionado ao caminho de volta para o submarino, não podendo mais avançar para frente. ').upper()
                     if posicao_final == 'S':
@@ -372,6 +374,7 @@ while True:
 
 
 
+            #Fase do retroceder
             if avancar_retroceder == 'R' and len(tesouros_jogador1) == 0 and posicao_jogador1 <= 1:
                 print(Fore.GREEN)
                 print('Não é possível retornar ao submarino, voçê não coletou nenhum tesouro.')
@@ -533,6 +536,7 @@ while True:
                                 print('Tesouro não removido. ')
                 else:
                     pass
+    #Reiniciar jogo
     if pergunta_reiniciar == 'N':
         print(Fore.GREEN + 'Obrigado por jogar! ')
         break
